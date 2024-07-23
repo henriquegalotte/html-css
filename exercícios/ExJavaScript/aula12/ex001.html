@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+
+        body{
+            background-color: rgb(70, 70, 245);
+            font-family: "Poppins", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+            margin: auto;
+        }
+        main{
+            
+            margin: auto;
+            text-align: center;
+            color: white;
+            
+            
+           
+           
+        }
+        section{
+            background-color: white;
+            width: 500px;
+            height: 450px;
+            margin: auto;
+            border-radius: 20px;
+            padding: 30px;
+            min-width: 500px;
+            max-width: none;
+        }
+        section>h1{
+            text-align: center;
+            color: #000000;
+            
+        }
+
+
+        footer{
+            text-align: center;
+            margin: 25px auto;
+            color: white;
+            font-weight: bold;
+            min-width: 640px;
+            max-width: none;
+        
+        }
+        
+        #imgstate{
+            width: 200px;
+            height: 200px;
+            background-image: url(lua.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 100px;
+            margin: 90px auto;
+        }
+       
+        html{
+            min-height: 100%;
+            position:relative;
+            
+        }
+
+    </style>
+</head>
+<body id = "corpo">
+    <header>
+        
+
+    </header>
+    <main>
+        <h1 id="titulo">Hora do dia</h1>
+        <section>
+            <h1 id="frasehora"></h1>
+
+            <div id="imgstate">
+                
+            </div>
+            
+
+            
+        </section>
+
+    </main>
+    <footer>
+
+        <p id="rodape">Henrique Galotte &#169;</p>
+
+    </footer>
+
+<script>
+    var data = new Date()
+    var hora = data.getHours()
+    //var hora = 18
+    var imagem = document.getElementById('imgstate')
+    var fundosite = document.getElementById('corpo')
+    var textohora = document.getElementById('frasehora')
+    if (hora>= 18){
+      
+        imagem.style.backgroundImage = "url('lua.jpg')";
+        imagem.style.backgroundRepeat = "no-repeat";
+        imagem.style.backgroundPosition = "88% 32%";
+        imagem.style.backgroundSize = "300%";
+        fundosite.style.backgroundImage = 'linear-gradient(to bottom, #000000,#303030)';
+        fundosite.style.backgroundRepeat = 'no-repeat';
+        fundosite.style.backgroundSize = '100%';
+        textohora.innerHTML = `Agora são ${hora} horas.`
+
+
+    } else if (hora >= 6){
+        imagem.style.backgroundImage = "url('sol.jpg')";
+        imagem.style.backgroundPosition = "50.5% 52.5%";
+        imagem.style.backgroundSize = "800%";
+        fundosite.style.backgroundImage = 'linear-gradient(to bottom, #fbff28,#0b5394)';
+        fundosite.style.backgroundRepeat = 'no-repeat';
+        fundosite.style.backgroundSize = '100%';
+        textohora.innerHTML = `Agora são ${hora} horas.`
+    }else if(hora >= 0){
+        imagem.style.backgroundImage = "url('lua.jpg')";
+        imagem.style.backgroundRepeat = "no-repeat";
+        imagem.style.backgroundPosition = "88% 32%";
+        imagem.style.backgroundSize = "300%";
+        fundosite.style.backgroundImage = 'linear-gradient(to bottom, #000000,#303030)';
+        fundosite.style.backgroundRepeat = 'no-repeat';
+        fundosite.style.backgroundSize = '100%';
+        textohora.innerHTML = `Agora são ${hora} horas.`
+    }
+
+
+</script>
+
+</body>
+</html>

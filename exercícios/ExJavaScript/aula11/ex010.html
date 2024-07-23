@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+</head>
+<body>
+    <h1>Sistema de multas</h1>
+    <input type="number" name="boxvel" id="boxvel">
+    <input type="button" value="Consultar" onclick="calcular()">
+
+
+
+<script>
+    
+    function calcular(){
+        var txtv = document.querySelector('input#boxvel')
+        var vel = Number(txtv.value)
+        if(vel > 80){
+            console.log(`Você foi multado, a velocidade permitida é ${80}`)
+        }
+}
+</script>
+
+
+</body>
+</html>

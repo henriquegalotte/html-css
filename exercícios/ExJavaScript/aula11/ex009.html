@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imigração</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        body{
+            background-color: darkslategrey;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+           
+        }
+        main{
+            background-color: white;
+            width: 700px;
+            height: 500px;
+            margin: 40px auto;
+            border-radius: 20px;
+            min-width: 640px;
+            max-width: none;
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.603);
+        }
+        section{
+            padding: 20px;
+        }
+        h1{
+            
+            font-size: 2em;
+            text-transform: uppercase;
+        }
+
+
+        #tela{
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+           
+        }
+        #txtinput{
+            width: 260px;
+            height: 40px;
+            margin: 40px auto;
+            border-radius: 17px;
+            
+            
+        }
+        #buttonIn{
+        
+            margin: auto;
+            background-color: orange;
+            font-size: 1em;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 16px;
+            
+        }
+        #buttonIn:hover{
+            background-color: #5f7da3;
+        }
+
+        #descriptionbox{
+
+            margin: auto;
+
+
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Imigração</h1>
+            <div id="tela">
+                <p id="descriptionbox">Digite sua nacionalidade abaixo</p>
+                <input type="text" name="txtinput" id="txtinput">
+                <input type="button" value="Ingressar" id="buttonIn" onclick="showwelcome()">
+            <div id="res">
+
+            </div>
+            </div>
+        </section>
+
+
+    </main>
+    <script>
+        var text = document.getElementById("txtinput")
+        var res = document.querySelector('div#res')
+        
+        function showwelcome(){
+            var string = text.value.charAt(0).toUpperCase()+ text.value.slice(1);
+            if(string == 'Brasil'){
+                res.innerHTML = `<p>Você nasceu em ${string}, portanto você é Brasileiro, seja bem vindo.</p>`
+            }
+            else{
+                res.innerHTML = `<p>Você nasceu em ${string}, seja bem vindo.</p>`
+            }
+
+            //console.log(`---- ${string} ----.`)
+            
+                }
+
+       
+
+
+
+    </script>
+</body>
+</html>
