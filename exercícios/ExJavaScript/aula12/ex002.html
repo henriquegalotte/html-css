@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador Idade</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+
+        body{
+            background-color: rgb(70, 70, 245);
+            font-family: "Poppins", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+            margin: auto;
+        }
+        main{
+            
+            margin: auto;
+            text-align: center;
+            color: white;
+            
+            
+           
+           
+        }
+        section{
+            background-color: white;
+            width: 500px;
+            height: 450px;
+            margin: auto;
+            border-radius: 20px;
+            padding: 30px;
+            min-width: 500px;
+            max-width: none;
+        }
+        section>h1{
+            text-align: center;
+            color: #000000;
+            
+        }
+
+
+        footer{
+            text-align: center;
+            margin: 25px auto;
+            color: white;
+            font-weight: bold;
+            min-width: 640px;
+            max-width: none;
+        
+        }
+        
+        #imgstate{
+            width: 200px;
+            height: 200px;
+            background-image: url(lua.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 100px;
+            margin: 90px auto;
+        }
+       
+        html{
+            min-height: 100%;
+            position:relative;
+            
+        }
+        label{
+            color: #000000;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body id = "corpo">
+    <header>
+        
+
+    </header>
+    <main>
+        <h1 id="titulo">Verificador de idade</h1>
+        <section>
+                
+            
+            
+            <div>
+                <input type="number" name="ano" id="ano">
+
+            </div>
+        
+            <div>
+                <label for="">Sexo:</label>
+                <input type="radio" id="rm" name="abc" value="Masculino" />
+                <label for="rm1">Masculino</label>
+                <input type="radio" id="rf1" name="abc" value="Feminino" />
+                <label for="rf1">Feminino</label>   
+            </div>
+            <input type="button" id="botao" value="Verificar" onclick="clicar()">
+            <p id="frase"></p>    
+
+            <div id="imgstate">
+                
+            </div>
+            
+
+        </section>
+
+    </main>
+    <footer>
+
+        <p id="rodape">Henrique Galotte &#169;</p>
+
+    </footer>
+
+<script>
+    
+    
+    
+    
+    function clicar(){
+        var year = new Date()
+        var anoatual = year.getFullYear()
+        var txt = document.querySelector('input#ano')
+        var ano = Number(txt.value)
+        var result = anoatual-ano
+
+       if(result >= 18){
+        console.log(`Você tem ${result} anos.`);
+       }
+
+
+
+        console.log(`${anoatual}`);
+    }
+    
+
+
+
+
+    
+    //var hora = 18
+    var imagem = document.getElementById('imgstate')
+    var fundosite = document.getElementById('corpo')
+    
+    
+    
+
+
+</script>
+
+</body>
+</html>
