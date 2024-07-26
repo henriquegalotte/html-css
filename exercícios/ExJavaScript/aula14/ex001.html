@@ -11,7 +11,7 @@
 
 
         body{
-            background-color: rgb(70, 70, 245);
+            background:linear-gradient(to top, rgb(184, 5, 145),rgb(241, 180, 241));
             font-family: "Poppins", sans-serif;
             font-weight: 100;
             font-style: normal;
@@ -37,12 +37,7 @@
             min-width: 500px;
             max-width: none;
         }
-        section>h1{
-            text-align: center;
-            color: #000000;
-            
-        }
-
+ 
 
         footer{
             text-align: center;
@@ -54,19 +49,7 @@
         
         }
         
-        #imgstate{
-            width: 200px;
-            height: 200px;
-            background-image: url(images/landscape.jpg);
-            background-position: 50% 80%;
-            background-repeat: no-repeat;
-            background-size: 200%;
-            border-radius: 100px;
-            margin: auto;
-            position: relative;
-            top: 100px;
-            
-        }
+        
        
         html{
             min-height: 100%;
@@ -85,8 +68,57 @@
         }
         #slot1{
 
-            height: 100px;
+            height: 200px;
 
+        }
+        
+
+
+        input{
+            margin: auto;
+            width: 40px;
+            height: 15px;
+            
+        }
+
+        #middle{
+            display: flex;
+            background-color: brown;
+            width: 140px;
+            height: auto;
+            flex-direction: column;
+            padding: 20px;
+            margin: 50px auto;
+            
+        }
+        
+        p{
+            height: 35px;    
+            text-align: center;  
+            margin: auto;  
+        }
+
+
+
+        .alinhamento{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: center;
+            margin: auto 0px;
+            align-items: baseline;
+            height: auto;
+        }
+
+
+
+        #botao{
+            width: auto;
+            height: auto;
+            font-size: 1em;
+        }
+        #frase{
+            color: #000000;
         }
     </style>
 </head>
@@ -96,29 +128,41 @@
 
     </header>
     <main>
-        <h1 id="titulo">Verificador de idade</h1>
+        <h1 id="titulo">Verificador de números</h1>
         <section>
-                
-            
-            
-            <div>
-                <input type="number" name="ano" id="ano">
 
-            </div>
+                <div id="middle">
+                    <div class="alinhamento">
+                        <div>
+                            <p>Início:</p>
+                        </div>
+                        <div>
+                            <input type="number" name="dados" id="inicial">
+                        </div>
+                    </div>
+                    <div class="alinhamento">
+                        <div>
+                            <p>Fim:</p>
+                        </div>
+                        <div><input type="number" name="dados" id="final"></div>
+                    </div>
+                    <div class="alinhamento">
+                        <div>
+                            <p>Passo:</p>
+                        </div>
+                        <div><input type="number" name="dados" id="passo"></div>
+                    </div>
+                </div>
+
+            
         
             <div id="slot1">
-                <div>
-                    <label for="">Sexo:</label>
-                    <input type="radio" id="rm" name="abc" value="Masculino" />
-                    <label for="rm1">Masculino</label>
-                    <input type="radio" id="rf1" name="abc" value="Feminino" />
-                    <label for="rf1">Feminino</label>
-                </div>
+                
                 <input type="button" id="botao" value="Verificar" onclick="clicar()">
                 <p id="frase"></p>
             </div>   
 
-            <div id="imgstate">
+            
                 
             </div>
             
@@ -138,97 +182,26 @@
     
     function clicar(){
 
-        console.log('passou aqui');
-    
-        var year = new Date()
-        var anoatual = year.getFullYear()
-        var txt = document.querySelector('input#ano')
-        var ano = Number(txt.value)
-        var result = anoatual-ano
+        
         var frase = document.querySelector('p#frase')
-        var radio = document.querySelector('input[name="abc"]:checked');
-        var fundosite = document.getElementById('corpo')
-        if(radio==null){
-            var resradio = null
-        }else{
-            var resradio = String(radio.value)
-        }
-        
-        console.log(ano)    
-        console.log(radio)    
-
-//Lógica de condições
-    if(result <= -1 || radio == null || ano == 0 ){
-        window.alert("Dados inválidos, tente novamente!")
-        
-    }else if(result >= 18 && result<59){//se a idade é maior que 18 --->
-            
-                if(resradio == "Masculino"){
-                    frase.innerHTML = `<p>Você tem ${result} anos, é <strong>adulto</strong> e <strong>Homem</strong> .</p>`;
-                    imagemfundo('images/man.jpg',48,32,110)
-                    fundosite.style.backgroundImage = 'linear-gradient(to bottom, #337AFF,#102958)';
-                    fundosite.style.backgroundRepeat = 'no-repeat';
-                    fundosite.style.backgroundSize = '100%';
-                }else{
-                    frase.innerHTML = `<p>Você tem ${result} anos, é <strong>adulta</strong> e <strong>Mulher</strong>.</p>`;
-                    imagemfundo('images/woman.jpg',60,32,150)
-                    fundosite.style.backgroundImage = 'linear-gradient(to bottom, #FF7EAF,#C61055)';
-                    fundosite.style.backgroundRepeat = 'no-repeat';
-                    fundosite.style.backgroundSize = '100%';
-                }
-
-                }else if(result <= 18){//se a idade é maior que 18 --->
-                    
-                    if(resradio == "Masculino"){
-                        frase.innerHTML = `<p>Você tem ${result} anos, é <strong>criança</strong> e <strong>Menino</strong> .</p>`;
-                        imagemfundo('images/boy.jpg',51,27,310)
-                        fundosite.style.backgroundImage = 'linear-gradient(to bottom, #337AFF,#102958)';
-                        fundosite.style.backgroundRepeat = 'no-repeat';
-                        fundosite.style.backgroundSize = '100%';
-                    }else{
-                        frase.innerHTML = `<p>Você tem ${result} anos, é <strong>criança</strong> e <strong>Menina</strong>.</p>`;
-                        imagemfundo('images/girl.jpg',20,32,150)
-                        
-                        fundosite.style.backgroundImage = 'linear-gradient(to bottom, #FF7EAF,#C61055)';
-                        fundosite.style.backgroundRepeat = 'no-repeat';
-                        fundosite.style.backgroundSize = '100%';
-                    }
-
-                }else if(result >= 60){//se a idade é maior que 18 --->
-                            
-                            if(resradio == "Masculino"){
-                                var resradio = String(radio.value);
-                                frase.innerHTML = `<p>Você tem ${result} anos, é <strong>Idoso</strong> e <strong>Homem</strong> .</p>`;
-                                imagemfundo('images/oldman.jpg',51,27,170)
-                                fundosite.style.backgroundImage = 'linear-gradient(to bottom, #337AFF,#102958)';
-                                fundosite.style.backgroundRepeat = 'no-repeat';
-                                fundosite.style.backgroundSize = '100%';
-                            }else{
-                                frase.innerHTML = `<p>Você tem ${result} anos, é <strong>Idosa</strong> e <strong>Mulher</strong>.</p>`;
-                                imagemfundo('images/oldwoman.jpg',77,10,250)
-                                fundosite.style.backgroundImage = 'linear-gradient(to bottom, #FF7EAF,#C61055)';
-                                fundosite.style.backgroundRepeat = 'no-repeat';
-                                fundosite.style.backgroundSize = '100%';
-                            }
-
-            }
-
-
-        }
+        var ini = document.getElementById('inicial')
+        var fin = document.getElementById('final')
+        var pass  = document.getElementById('passo')
+        var inicio = Number(ini.value)
+        var fim = Number(fin.value)
+        var passo = Number(pass.value)
+     
+        console.log(inicio)    
+        console.log(fim)    
+        console.log(passo)    
+    }
+    
 
     
 
 
 
-    function imagemfundo(item,left,top,percent){
-        
-        var imagem = document.getElementById('imgstate')
-        imagem.style.backgroundImage = "url("+item+")";
-        imagem.style.backgroundRepeat = "no-repeat";
-        imagem.style.backgroundPosition = ""+left+"% "+top+"%";
-        imagem.style.backgroundSize = ""+percent+"%";
-        }
-
+    
 
     
 
