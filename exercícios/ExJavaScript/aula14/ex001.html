@@ -16,6 +16,7 @@
             font-weight: 100;
             font-style: normal;
             margin: auto;
+            height: auto;
         }
         main{
             
@@ -30,7 +31,7 @@
         section{
             background-color: white;
             width: 530px;
-            height: 450px;
+            
             margin: auto;
             border-radius: 20px;
             padding: 30px;
@@ -65,14 +66,10 @@
             color: #000000;
             font-size: 1.3em;
             font-weight: 500;
+            height: 35px;    
+            text-align: center;  
+            margin: auto;
         }
-        #slot1{
-
-            height: 200px;
-
-        }
-        
-
 
         input{
             margin: auto;
@@ -84,21 +81,14 @@
         #middle{
             display: flex;
             background-color: brown;
-            width: 140px;
+            width: 240px;
             height: auto;
             flex-direction: column;
             padding: 20px;
             margin: 50px auto;
             
         }
-        
-        p{
-            height: 35px;    
-            text-align: center;  
-            margin: auto;  
-        }
-
-
+     
 
         .alinhamento{
             display: flex;
@@ -117,8 +107,8 @@
             height: auto;
             font-size: 1em;
         }
-        #frase{
-            color: #000000;
+        select{
+            
         }
     </style>
 </head>
@@ -134,35 +124,25 @@
                 <div id="middle">
                     <div class="alinhamento">
                         <div>
-                            <p>Início:</p>
+                            <p>Número:</p>
                         </div>
                         <div>
                             <input type="number" name="dados" id="inicial">
+                            <input type="button" id="botao" value="Contar" onclick="clicar()">
                         </div>
                     </div>
-                    <div class="alinhamento">
-                        <div>
-                            <p>Fim:</p>
-                        </div>
-                        <div><input type="number" name="dados" id="final"></div>
+                    <select name="abc" id="lista" size="11">
+                        <option value="">1</option>
+                      
+                    </select>
                     </div>
-                    <div class="alinhamento">
-                        <div>
-                            <p>Passo:</p>
-                        </div>
-                        <div><input type="number" name="dados" id="passo"></div>
-                    </div>
+                    
                 </div>
 
-            
-        
-            <div id="slot1">
                 
-                <input type="button" id="botao" value="Verificar" onclick="clicar()">
-                <p id="frase"></p>
-            </div>   
-
-            
+                
+        
+           
                 
             </div>
             
@@ -181,23 +161,34 @@
     
     
     function clicar(){
-
+        console.log('cliquei')
         
-        var frase = document.querySelector('p#frase')
-        var ini = document.getElementById('inicial')
-        var fin = document.getElementById('final')
-        var pass  = document.getElementById('passo')
-        var inicio = Number(ini.value)
-        var fim = Number(fin.value)
-        var passo = Number(pass.value)
-     
-        console.log(inicio)    
-        console.log(fim)    
-        console.log(passo)    
+        frase = document.querySelector('p#frase')
+        ini = document.getElementById('inicial')
+        fin = document.getElementById('final')
+        pass  = document.getElementById('passo')
+        inicio = Number(ini.value)
+        fim = Number(fin.value)
+        passo = Number(pass.value)
+        
+        countshow(inicio,fim,passo)
+        console.log('passou da função')   
     }
-    
+    texto = ""
 
-    
+    function countshow(init,fi,p){
+        console.log('entrou na função')
+        for(i=init;i<fi;i+=p) {
+            console.log(i)
+            
+            texto += `${i} &#128073;`
+        }
+
+        texto += "&#128681"
+        frase.innerHTML += texto
+        
+
+    }
 
 
 
