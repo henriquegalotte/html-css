@@ -107,8 +107,9 @@
             height: auto;
             font-size: 1em;
         }
-        select{
-            
+        #btnapagar{
+            width: 60px;
+            height: 30px;
         }
     </style>
 </head>
@@ -127,16 +128,17 @@
                             <p>Número:</p>
                         </div>
                         <div>
-                            <input type="number" name="dados" id="inicial">
+                            <input type="number" name="dados" id="txttab">
                             <input type="button" id="botao" value="Contar" onclick="clicar()">
                         </div>
                     </div>
                     <select name="abc" id="lista" size="11">
-                        <option value="">1</option>
+                        
                       
                     </select>
-                    </div>
                     
+                    </div>
+                    <input type = "button" id="btnapagar" onclick = "remove()" value = "Apagar">
                 </div>
 
                 
@@ -161,36 +163,37 @@
     
     
     function clicar(){
-        console.log('cliquei')
         
-        frase = document.querySelector('p#frase')
-        ini = document.getElementById('inicial')
-        fin = document.getElementById('final')
-        pass  = document.getElementById('passo')
-        inicio = Number(ini.value)
-        fim = Number(fin.value)
-        passo = Number(pass.value)
-        
-        countshow(inicio,fim,passo)
-        console.log('passou da função')   
-    }
-    texto = ""
+        console.log(txttab.value)
+        let num = document.getElementById('txttab')
+        let tab = document.getElementById('lista')
 
-    function countshow(init,fi,p){
-        console.log('entrou na função')
-        for(i=init;i<fi;i+=p) {
-            console.log(i)
-            
-            texto += `${i} &#128073;`
+        if(num.value.length == 0){
+            window.alert("Digite um número!")
+        }else{
+            console.log(num.value)
+            let n = Number(num.value)
+            let c = 1
+            while(c <= 10){
+                let item = document.createElement('option')
+                item.text = `${n} x ${c} = ${n*c}`
+                tab.appendChild(item)
+                c++
+            }
+
         }
 
-        texto += "&#128681"
-        frase.innerHTML += texto
-        
-
     }
+    function remove(){
 
+        tab = document.getElementById("lista");
+        count = 0
+        for (count = 0;count < 10; count++){
 
+            tab.remove(tab);  
+        }
+       
+    }
 
     
 
